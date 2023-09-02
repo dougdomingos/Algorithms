@@ -29,7 +29,7 @@ to implement the following algorithms:
   - [ ] Counting Sort
 
 ### Searching
-- [ ] Binary Search
+- [X] Binary Search
 - [ ] Recursive Binary Search
 
 ## Getting Started
