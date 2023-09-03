@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import sorts.quickSort.QuickSort;
 import sorts.selectionSort.SelectionSort;
 
 import java.util.Arrays;
@@ -38,7 +39,7 @@ public class SortsTest {
     @BeforeEach
     void setUp() {
         // Change the algorithm to test other sorts
-        this.algorithm = new SelectionSort<>();
+        this.algorithm = new QuickSort<>();
     }
 
     @Test
