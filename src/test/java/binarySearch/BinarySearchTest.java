@@ -28,7 +28,7 @@ public class BinarySearchTest {
     @BeforeEach
     void setUp() {
         // Change the algorithm to test other sorts
-        this.algorithm = new BinarySearch<>();
+        this.algorithm = new RecursiveBinarySearch<>();
     }
 
     @Test
