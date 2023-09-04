@@ -22,7 +22,7 @@ to implement the following algorithms:
 
 - **Logarithmic: O(n log n)**
   - [ ] Merge Sort
-  - [ ] Quick Sort
+  - [X] Quick Sort
 
 
 - **Linear: O(n)**
@@ -30,7 +30,7 @@ to implement the following algorithms:
 
 ### Searching
 - [X] Binary Search
-- [ ] Recursive Binary Search
+- [X] Recursive Binary Search
 
 ## Getting Started
 
