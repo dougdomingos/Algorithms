@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import sorts.insertionSort.InsertionSort;
+import sorts.bubbleSort.BubbleSort;
 
 import java.util.Arrays;
 
@@ -38,7 +38,7 @@ public class SortsTest {
     @BeforeEach
     void setUp() {
         // Change the algorithm to test other sorts
-        this.algorithm = new InsertionSort<>();
+        this.algorithm = new BubbleSort<>();
     }
 
     @Test
