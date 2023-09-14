@@ -18,7 +18,7 @@ public class InsertionSort<T extends Comparable<T>> extends AbstractSort<T> {
 	@Override
 	public void sort(T[] array, int left, int right) {
 		// iterates from the 2nd position to the end of the partition
-		for (int i = 1; i < array.length; i++) {
+		for (int i = left + 1; i <= right; i++) {
 			int indexSorted = i - 1;
 			int indexValue = i;
 			boolean isGreater = false;
