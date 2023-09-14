@@ -16,7 +16,7 @@ to implement the following algorithms:
 - **Quadratic: O(n²)**
   - [X] Selection Sort
   - [X] Insertion Sort
-  - [ ] Bubble Sort
+  - [X] Bubble Sort
   - [ ] Shaker Sort
 
 
