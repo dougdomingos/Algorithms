@@ -5,11 +5,14 @@ import util.Util;
 
 /**
  * Quick Sort.
- * <p>
+ * 
  * The Quick Sort algorithm works by choosing an arbitrary element
  * of the array (the pivot) and partition it in a way that no element
- * in the first partition is greater than any elemento of the second
+ * in the first partition is greater than any element of the second
  * partition.
+ * 
+ * Time Complexity: O(n * log n) | Space Complexity: O(1)
+ * Stability: non-stable
  */
 public class QuickSort<T extends Comparable<T>> extends AbstractSort<T> {
 

@@ -5,12 +5,12 @@ import util.Util;
 
 /**
  * Selection Sort.
- * <p>
+ * 
  * The Selection Sort algorithm works by successfully putting the N-th smallest
  * element at the start of the unsorted partition of the array, until the array
  * is fully sorted.
- * <p>
- * Time complexity: O(n²) | Space complexity: O(1) | Stability: non-stable
+ * 
+ * Time complexity: O(n^2) | Space complexity: O(1) | Stability: non-stable
  */
 public class SelectionSort<T extends Comparable<T>> extends AbstractSort<T> {
     @Override
