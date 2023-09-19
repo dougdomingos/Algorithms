@@ -1,10 +1,11 @@
 # Algorithms
 
-This repository is a collection various algorithms in Java, along with unit tests using JUnit.
+This repository is a collection of various data structures and algorithms implemented with Java, along with unit tests using JUnit.
 
 ## Table of Contents
 
 - [Algorithms](#algorithms)
+- [Data Structures](#data-structures)
 - [Getting Started](#getting-started)
 - [License](#license)
 
@@ -19,11 +20,9 @@ to implement the following algorithms:
   - [X] Bubble Sort
   - [ ] Shaker Sort
 
-
 - **Logarithmic: O(n log n)**
   - [ ] Merge Sort
   - [X] Quick Sort
-
 
 - **Linear: O(n)**
   - [ ] Counting Sort
@@ -32,12 +31,25 @@ to implement the following algorithms:
 - [X] Binary Search
 - [X] Recursive Binary Search
 
+
+## Data Structures
+As I learn more, I'll add new implementations here. Currently, these are the structures that I've planned:
+
+## Array-based Structures
+- [ ] ArrayList
+- [ ] SingleLinkedList
+- [ ] DoubleLinkedList
+- [ ] Stack
+- [ ] Queue
+- [ ] Circular Queue
+- [ ] HashTable
+
 ## Getting Started
 
 1. Clone this repository to your local machine using:
 
    ```bash
-   git clone https://github.com/dougdomingos/Algorithms.git
+   git clone https://github.com/dougdomingos/DSA-Java.git
    ```
 
 2. Open the project in your preferred Java development environment (e.g., Eclipse, IntelliJ IDEA).
