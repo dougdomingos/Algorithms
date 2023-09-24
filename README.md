@@ -37,10 +37,10 @@ As I learn more, I'll add new implementations here. Currently, these are the str
 
 ## Array-based Structures
 - [ ] ArrayList
-- [ ] SingleLinkedList
+- [X] SingleLinkedList
 - [ ] DoubleLinkedList
-- [ ] Stack
-- [ ] Queue
+- [X] Stack
+- [X] Queue
 - [ ] Circular Queue
 - [ ] HashTable
 
