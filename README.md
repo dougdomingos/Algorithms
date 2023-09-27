@@ -1,5 +1,8 @@
 # Algorithms
 
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/dougdomingos/DSA-Java/run-junit.yml?style=flat-square)
+![GitHub](https://img.shields.io/github/license/dougdomingos/DSA-Java?style=flat-square)
+
 This repository is a collection of various data structures and algorithms implemented with Java, along with unit tests using JUnit.
 
 ## Table of Contents
