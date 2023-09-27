@@ -1,79 +1,76 @@
 package com.dougdomingos.sorts;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import com.dougdomingos.sorts.bubbleSort.BubbleSort;
+import com.dougdomingos.sorts.insertionSort.InsertionSort;
+import com.dougdomingos.sorts.quickSort.QuickSort;
+import com.dougdomingos.sorts.selectionSort.SelectionSort;
 
 /**
  * Generic test class for sorting algorithms.
  */
 public class SortsTest {
 
-    /**
-     * The algorithm under testing.
-     */
-    private AbstractSort<Integer> algorithm;
+    private final Integer[] positives = { 57, 12, 89, 34, 76, 23, 41, 65, 98, 5 };
 
-    private final Integer[] positives = {57, 12, 89, 34, 76, 23, 41, 65, 98, 5};
+    private final Integer[] negatives = { -45, -78, -92, -6, -23, -67, -34, -89, -56, -10 };
 
-    private final Integer[] negatives = {-45, -78, -92, -6, -23, -67, -34, -89, -56, -10};
+    private final Integer[] mixed = { -75, 56, 18, -91, 30, -42, 84, -27, 63, -9 };
 
-    private final Integer[] mixed = {-75, 56, 18, -91, 30, -42, 84, -27, 63, -9};
+    private final Integer[] evenSize = { 25, -48, 13, 76, -11, 16 };
 
-    private final Integer[] evenSize = {25, -48, 13, 76, -11, 16};
+    private final Integer[] oddSize = { -89, 42, -5, 67, 29 };
 
-    private final Integer[] oddSize = {-89, 42, -5, 67, 29};
-
-    private final Integer[] repeated = {7, 7, 2, 1, 4, 2, 7, 8, 8, 4, 9};
+    private final Integer[] repeated = { 7, 7, 2, 1, 4, 2, 7, 8, 8, 4, 9 };
 
     private final Integer[] empty = {};
 
-    /**
-     * Create an instance of the algorithm for testing.
-     */
-    @BeforeEach
-    void setUp() {
-        // Change the algorithm to test other sorts
-        this.algorithm = new BubbleSort<>();
+    @ParameterizedTest
+    @MethodSource("sorts")
+    public void testPositives(AbstractSort<Integer> algorithm) {
+        runSortTest(algorithm, positives);
     }
 
-    @Test
-    public void testPositives() {
-        runSortTest(positives);
+    @ParameterizedTest
+    @MethodSource("sorts")
+    public void testNegatives(AbstractSort<Integer> algorithm) {
+        runSortTest(algorithm, negatives);
     }
 
-    @Test
-    public void testNegatives() {
-        runSortTest(negatives);
+    @ParameterizedTest
+    @MethodSource("sorts")
+    public void testMixed(AbstractSort<Integer> algorithm) {
+        runSortTest(algorithm, mixed);
     }
 
-    @Test
-    public void testMixed() {
-        runSortTest(mixed);
+    @ParameterizedTest
+    @MethodSource("sorts")
+    public void testEvenSize(AbstractSort<Integer> algorithm) {
+        runSortTest(algorithm, evenSize);
     }
 
-    @Test
-    public void testEvenSize() {
-        runSortTest(evenSize);
+    @ParameterizedTest
+    @MethodSource("sorts")
+    public void testOddSize(AbstractSort<Integer> algorithm) {
+        runSortTest(algorithm, oddSize);
     }
 
-    @Test
-    public void testOddSize() {
-        runSortTest(oddSize);
+    @ParameterizedTest
+    @MethodSource("sorts")
+    public void testRepeated(AbstractSort<Integer> algorithm) {
+        runSortTest(algorithm, repeated);
     }
 
-    @Test
-    public void testRepeated() {
-        runSortTest(repeated);
-    }
-
-    @Test
-    public void testEmpty() {
-        runSortTest(empty);
+    @ParameterizedTest
+    @MethodSource("sorts")
+    public void testEmpty(AbstractSort<Integer> algorithm) {
+        runSortTest(algorithm, empty);
     }
 
     /**
@@ -81,7 +78,7 @@ public class SortsTest {
      *
      * @param array The target array of the algorithm
      */
-    private void runSortTest(Integer[] array) {
+    private void runSortTest(AbstractSort<Integer> algorithm, Integer[] array) {
         Integer[] copy = Arrays.copyOf(array, array.length);
 
         algorithm.sort(array);
@@ -89,5 +86,17 @@ public class SortsTest {
 
         Assertions.assertArrayEquals(array, copy);
     }
-}
 
+    /**
+     * Set up the algorithms to be tested.
+     * 
+     * @return A stream with the targeted algorithms
+     */
+    private static Stream<AbstractSort<Integer>> sorts() {
+        return Stream.of(
+                new SelectionSort<>(),
+                new InsertionSort<>(),
+                new BubbleSort<>(),
+                new QuickSort<>());
+    }
+}

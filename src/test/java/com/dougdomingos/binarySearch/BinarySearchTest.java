@@ -1,18 +1,15 @@
 package com.dougdomingos.binarySearch;
 
+import java.util.stream.Stream;
+
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 /**
  * Generic test class for binary search algorithms.
  */
 public class BinarySearchTest {
-
-    /**
-     * The algorithm under testing.
-     */
-    private AbstractSearch<Integer> algorithm;
 
     private final Integer[] mixedValues = { -91, -75, -42, -27, -9, 18, 30, 56, 63, 84 };
 
@@ -22,43 +19,40 @@ public class BinarySearchTest {
 
     private final Integer[] empty = {};
 
-    /**
-     * Create an instance of the algorithm for testing.
-     */
-    @BeforeEach
-    void setUp() {
-        // Change the algorithm to test other sorts
-        this.algorithm = new RecursiveBinarySearch<>();
+    @ParameterizedTest
+    @MethodSource("searchs")
+    public void testMixedValues(AbstractSearch<Integer> algorithm) {
+        runSearchTest(algorithm, mixedValues, 30, 6);
     }
 
-    @Test
-    public void testMixedValues() {
-        runSearchTest(mixedValues, 30, 6);
+    @ParameterizedTest
+    @MethodSource("searchs")
+    public void testEvenSize(AbstractSearch<Integer> algorithm) {
+        runSearchTest(algorithm, evenSize, 16, 3);
     }
 
-    @Test
-    public void testEvenSize() {
-        runSearchTest(evenSize, 16, 3);
+    @ParameterizedTest
+    @MethodSource("searchs")
+    public void testOddSize(AbstractSearch<Integer> algorithm) {
+        runSearchTest(algorithm, oddSize, 29, 2);
     }
 
-    @Test
-    public void testOddSize() {
-        runSearchTest(oddSize, 29, 2);
+    @ParameterizedTest
+    @MethodSource("searchs")
+    public void testEmpty(AbstractSearch<Integer> algorithm) {
+        runSearchTest(algorithm, empty, 0, -1);
     }
 
-    @Test
-    public void testEmpty() {
-        runSearchTest(empty, 0, -1);
+    @ParameterizedTest
+    @MethodSource("searchs")
+    public void testValueOnLeftLimit(AbstractSearch<Integer> algorithm) {
+        runSearchTest(algorithm, mixedValues, -91, 0);
     }
 
-    @Test
-    public void testValueOnLeftLimit() {
-        runSearchTest(mixedValues, -91, 0);
-    }
-    
-    @Test
-    public void testValueOnRightLimit() {
-        runSearchTest(mixedValues, 84, 9);
+    @ParameterizedTest
+    @MethodSource("searchs")
+    public void testValueOnRightLimit(AbstractSearch<Integer> algorithm) {
+        runSearchTest(algorithm, mixedValues, 84, 9);
     }
 
     /**
@@ -68,9 +62,18 @@ public class BinarySearchTest {
      * @param target   The value we want to find
      * @param expected The expected return of the algorithm
      */
-    private void runSearchTest(Integer[] array, Integer target, Integer expected) {
+    private void runSearchTest(AbstractSearch<Integer> algorithm, Integer[] array, Integer target, Integer expected) {
         int indexTarget = algorithm.search(array, target);
 
         Assertions.assertEquals(expected, indexTarget);
+    }
+
+    /**
+     * Set up the algorithms to be tested.
+     * 
+     * @return A stream with the targeted algorithms
+     */
+    private static Stream<AbstractSearch<Integer>> searchs() {
+        return Stream.of(new BinarySearch<>(), new RecursiveBinarySearch<>());
     }
 }
