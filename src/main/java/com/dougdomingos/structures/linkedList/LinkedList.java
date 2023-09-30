@@ -22,42 +22,19 @@ public interface LinkedList<T> {
     public void insertLast(T element);
 
     /**
-     * Insert an element at a given point of the list.
+     * Insert an element at a given index.
      * 
      * @param element The element to be inserted
+     * @param index The index where the element will be inserted
      */
-    public void insertAt(T element, int index);
-
-    /**
-     * Removes the first element from the list.
-     * 
-     * @return The removed element
-     */
-    public T removeFirst() throws StructureUnderflowException;
-
-    /**
-     * Removes the last element from the list.
-     * 
-     * @return The removed element
-     */
-    public T removeLast() throws StructureUnderflowException;
+    public void insert(T element, int index);
 
     /**
      * Removes a element from the list.
      * 
      * @param element The element to be removed
-     * @return A boolean value; true if the value was found and removed, false
-     *         otherwise
      */
-    public boolean remove(T element) throws StructureUnderflowException;
-
-    /**
-     * Returns the index of a given element in the list.
-     * 
-     * @param element The target element
-     * @return The index of the element in the list (-1 if the value is not found)
-     */
-    public int indexOf(T element);
+    public void remove(T element) throws StructureUnderflowException;
 
     /**
      * Checks if an element is in the list.
@@ -66,6 +43,28 @@ public interface LinkedList<T> {
      * @return A boolean value; true if the value is in the list, false otherwise
      */
     public boolean contains(T element);
+
+    /**
+     * Returns the index of an element in the list.
+     * 
+     * @param element The target element
+     * @return The index of the element or -1 if not on the list
+     */
+    public int indexOf(T element);
+
+    /**
+     * Returns the first element of the list.
+     * 
+     * @return The element at the start of the list
+     */
+    public T peekFirst();
+
+    /**
+     * Returns the last element of the list.
+     * 
+     * @return The element at the end of the list
+     */
+    public T peekLast();
 
     /**
      * Returns the number of elements in the list.

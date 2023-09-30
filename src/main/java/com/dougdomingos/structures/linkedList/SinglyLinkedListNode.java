@@ -1,9 +1,9 @@
 package com.dougdomingos.structures.linkedList;
 
 /**
- * Representation of a Single Linked List Node.
+ * Representation of a Singly Linked List Node.
  */
-public class SingleLinkedListNode<T extends Comparable<T>> {
+public class SinglyLinkedListNode<T extends Comparable<T>> {
 
     /**
      * The value stored in the node.
@@ -13,7 +13,7 @@ public class SingleLinkedListNode<T extends Comparable<T>> {
     /**
      * A pointer to the next node in the list.
      */
-    private SingleLinkedListNode<T> next;
+    private SinglyLinkedListNode<T> next;
 
     /**
      * Creates a new node.
@@ -21,7 +21,7 @@ public class SingleLinkedListNode<T extends Comparable<T>> {
      * @param data The value of the node
      * @param next The next node of the list
      */
-    public SingleLinkedListNode(T data) {
+    public SinglyLinkedListNode(T data) {
         this.data = data;
         this.next = null;
     }
@@ -30,11 +30,11 @@ public class SingleLinkedListNode<T extends Comparable<T>> {
         return data;
     }
 
-    public SingleLinkedListNode<T> getNext() {
+    public SinglyLinkedListNode<T> getNext() {
         return next;
     }
 
-    public void setNext(SingleLinkedListNode<T> newNext) {
+    public void setNext(SinglyLinkedListNode<T> newNext) {
         this.next = newNext;
     }
 
@@ -49,11 +49,11 @@ public class SingleLinkedListNode<T extends Comparable<T>> {
     @Override
     @SuppressWarnings("unchecked")
     public boolean equals(Object obj) {
-        if (!(obj instanceof SingleLinkedListNode)) {
+        if (!(obj instanceof SinglyLinkedListNode)) {
             return false;
         }
 
-        SingleLinkedListNode<T> node = (SingleLinkedListNode<T>) obj;
+        SinglyLinkedListNode<T> node = (SinglyLinkedListNode<T>) obj;
 
         return this.data.compareTo(node.getData()) == 0;
     }
