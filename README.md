@@ -1,4 +1,4 @@
-# Algorithms
+# Data Structures and Algorithms (DSA)
 
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/dougdomingos/DSA-Java/run-junit.yml?style=flat-square)
 ![GitHub](https://img.shields.io/github/license/dougdomingos/DSA-Java?style=flat-square)
@@ -17,13 +17,13 @@ I'm working on adding more implementations constantly. Currently, I've planned
 to implement the following algorithms:
 
 ### Sorting
-- **Quadratic: O(n²)**
+- **Quadratic: O(n^2)**
   - [X] Selection Sort
   - [X] Insertion Sort
   - [X] Bubble Sort
   - [ ] Shaker Sort
 
-- **Logarithmic: O(n log n)**
+- **Logarithmic: O(n * log n)**
   - [ ] Merge Sort
   - [X] Quick Sort
 
@@ -38,14 +38,17 @@ to implement the following algorithms:
 ## Data Structures
 As I learn more, I'll add new implementations here. Currently, these are the structures that I've planned:
 
-## Array-based Structures
-- [ ] ArrayList
-- [X] SingleLinkedList
-- [ ] DoubleLinkedList
+### Array-based Structures
 - [X] Stack
 - [X] Queue
 - [X] Circular Queue
-- [ ] HashTable
+- [ ] Hash Table
+
+### Node-based Structures
+- [X] Singly Linked List (SLL)
+- [ ] Double Linked List (DLL)
+- [ ] Stack with SLL
+- [ ] Queue with DLL
 
 ## Getting Started
 
