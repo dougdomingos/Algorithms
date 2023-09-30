@@ -44,7 +44,7 @@ As I learn more, I'll add new implementations here. Currently, these are the str
 - [ ] DoubleLinkedList
 - [X] Stack
 - [X] Queue
-- [ ] Circular Queue
+- [X] Circular Queue
 - [ ] HashTable
 
 ## Getting Started
