@@ -49,6 +49,24 @@ public class ArrayQueue<T extends Comparable<T>> implements Queue<T> {
     }
 
     @Override
+    public T getHead() {
+        if (isEmpty()) {
+            return null;
+        }
+
+        return queue[0];
+    }
+
+    @Override
+    public T getTail() {
+        if (isEmpty()) {
+            return null;
+        }
+
+        return queue[tail];
+    }
+
+    @Override
     public boolean isFull() {
         return tail == queue.length - 1;
     }
@@ -68,4 +86,5 @@ public class ArrayQueue<T extends Comparable<T>> implements Queue<T> {
 
         tail--;
     }
+
 }

@@ -25,6 +25,20 @@ public interface Queue<T> {
     public T dequeue() throws StructureUnderflowException;
 
     /**
+     * Returns the head element of the queue.
+     * 
+     * @return The head element
+     */
+    public T getHead();
+
+    /**
+     * Returns the tail element of the queue.
+     *  
+     * @return The tail element
+     */
+    public T getTail();
+
+    /**
      * Checks if the queue is empty.
      * 
      * @return A boolean value; true if the queue is empty, false otherwise
