@@ -7,8 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import java.util.stream.Stream;
+
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import com.dougdomingos.structures.StructureOverflowException;
 import com.dougdomingos.structures.StructureUnderflowException;
@@ -18,99 +20,107 @@ import com.dougdomingos.structures.StructureUnderflowException;
  */
 public class StackTest {
 
-    /**
-     * The implementation under testing.
-     */
-    private Stack<Integer> stack1;
-    private Stack<Integer> stack2;
-
-    /**
-     * Create an instance of the stack for testing
-     */
-    @BeforeEach
-    void setUp() {
-        this.stack1 = new LinkedListStack<>(5);
-        this.stack2 = new LinkedListStack<>(5);
-
-        // fills the stack
-        fillStack(stack1, 5);
+    @ParameterizedTest
+    @MethodSource("stacks")
+    void testCapacity(Stack<Integer> stack) {
+        fillStack(stack, stack.capacity());
+        assertEquals(5, stack.capacity());
     }
 
-    @Test
-    void testCapacity() {
-        assertEquals(5, stack1.capacity());
+    @ParameterizedTest
+    @MethodSource("stacks")
+    void testContains(Stack<Integer> stack) {
+        fillStack(stack, stack.capacity());
+        assertTrue(stack.contains(1));
+    }
+    
+    @ParameterizedTest
+    @MethodSource("stacks")
+    void testNotContains(Stack<Integer> stack) {
+        fillStack(stack, stack.capacity());
+        int testValue = stack.capacity() + 1;
+        assertFalse(stack.contains(testValue));
     }
 
-    @Test
-    void testContains() {
-        assertTrue(stack1.contains(1));
+    @ParameterizedTest
+    @MethodSource("stacks")
+    void testIsEmpty(Stack<Integer> stack) {
+        assertTrue(stack.isEmpty());
     }
 
-    @Test
-    void testNotContains() {
-        int testValue = stack1.capacity() + 1;
-        assertFalse(stack1.contains(testValue));
+    @ParameterizedTest
+    @MethodSource("stacks")
+    void testIsFull(Stack<Integer> stack) {
+        fillStack(stack, stack.capacity());
+        assertTrue(stack.isFull());
     }
 
-    @Test
-    void testIsEmpty() {
-        assertTrue(stack2.isEmpty());
+    @ParameterizedTest
+    @MethodSource("stacks")
+    void testPeekNull(Stack<Integer> stack) {
+        assertNull(stack.peek());
     }
 
-    @Test
-    void testIsFull() {
-        assertTrue(stack1.isFull());
+    @ParameterizedTest
+    @MethodSource("stacks")
+    void testPeekNotNull(Stack<Integer> stack) {
+        fillStack(stack, stack.capacity());
+        assertNotNull(stack.peek());
     }
 
-    @Test
-    void testPeekNull() {
-        assertNull(stack2.peek());
-    }
-
-    @Test
-    void testPeekNotNull() {
-        assertNotNull(stack1.peek());
-    }
-
-    @Test
-    void testPop() {
+    @ParameterizedTest
+    @MethodSource("stacks")
+    void testPop(Stack<Integer> stack) {
+        fillStack(stack, stack.capacity());
         try {
-            int expected = stack1.capacity() - 1;
-            int popped = stack1.pop();
+            int expected = stack.capacity() - 1;
+            int popped = stack.pop();
             assertEquals(expected, popped);
         } catch (StructureUnderflowException e) {
             e.printStackTrace();
         }
     }
 
-    @Test
-    void testPopUnderflow() {
-        assertThrows(StructureUnderflowException.class, () -> stack2.pop());
+    @ParameterizedTest
+    @MethodSource("stacks")
+    void testPopUnderflow(Stack<Integer> stack) {
+        assertThrows(StructureUnderflowException.class, () -> stack.pop());
     }
 
-    @Test
-    void testPush() {
+    @ParameterizedTest
+    @MethodSource("stacks")
+    void testPush(Stack<Integer> stack) {
         try {
-            stack2.push(10);
-            assertEquals(10, stack2.peek());
+            stack.push(10);
+            assertEquals(10, stack.peek());
         } catch (StructureOverflowException e) {
             e.printStackTrace();
         }
     }
 
-    @Test
-    void testPushOverflow() {
-        try {
-            stack1.push(1);
-            assertThrows(StructureOverflowException.class, () -> stack1.push(10));
-        } catch (StructureOverflowException e) {
-            e.printStackTrace();
-        }
+    @ParameterizedTest
+    @MethodSource("stacks")
+    void testPushOverflow(Stack<Integer> stack) {
+        fillStack(stack, stack.capacity());
+        assertThrows(StructureOverflowException.class, () -> stack.push(10));
     }
 
-    @Test
-    void testSize() {
-        assertEquals(stack1.capacity(), stack1.size());
+    @ParameterizedTest
+    @MethodSource("stacks")
+    void testSize(Stack<Integer> stack) {
+        fillStack(stack, stack.capacity());
+        assertEquals(stack.capacity(), stack.size());
+    }
+
+    /**
+     * Set up the algorithms to be tested.
+     * 
+     * @return A stream with the targeted algorithms
+     */
+    private static Stream<Stack<Integer>> stacks() {
+        return Stream.of(
+                new ArrayStack<>(5), 
+                new LinkedListStack<>(5));
     }
 
     /**
