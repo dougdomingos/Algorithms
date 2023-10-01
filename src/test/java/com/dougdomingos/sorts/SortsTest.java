@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import com.dougdomingos.sorts.bubbleSort.BubbleSort;
 import com.dougdomingos.sorts.insertionSort.InsertionSort;
+import com.dougdomingos.sorts.mergeSort.MergeSort;
 import com.dougdomingos.sorts.quickSort.QuickSort;
 import com.dougdomingos.sorts.selectionSort.SelectionSort;
 
@@ -97,6 +98,7 @@ public class SortsTest {
                 new SelectionSort<>(),
                 new InsertionSort<>(),
                 new BubbleSort<>(),
-                new QuickSort<>());
+                new QuickSort<>(),
+                new MergeSort<>());
     }
 }

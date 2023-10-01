@@ -24,7 +24,7 @@ to implement the following algorithms:
   - [ ] Shaker Sort
 
 - **Logarithmic: O(n * log n)**
-  - [ ] Merge Sort
+  - [X] Merge Sort
   - [X] Quick Sort
 
 - **Linear: O(n)**
