@@ -10,7 +10,8 @@ import com.dougdomingos.util.Util;
  * element at the start of the unsorted partition of the array, until the array
  * is fully sorted.
  * 
- * Time complexity: O(n^2) | Space complexity: O(1) | Stability: non-stable
+ * Time complexity: O(n^2) | Space complexity: O(1)
+ * Stability: Non-stable
  */
 public class SelectionSort<T extends Comparable<T>> extends AbstractSort<T> {
     @Override

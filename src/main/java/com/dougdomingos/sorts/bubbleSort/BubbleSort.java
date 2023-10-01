@@ -9,7 +9,8 @@ import com.dougdomingos.util.Util;
  * The Bubble Sort algorithm works by successively pushing the biggest
  * elements to the end of the array, until the array is completely sorted.
  * 
- * Time Complexity: O(n^2) | Space Complexity: O(1) | Stability: stable
+ * Time Complexity: O(n^2) | Space Complexity: O(1)
+ * Stability: Stable
  */
 public class BubbleSort<T extends Comparable<T>> extends AbstractSort<T> {
 

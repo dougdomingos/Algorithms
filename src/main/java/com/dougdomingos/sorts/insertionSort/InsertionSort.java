@@ -11,7 +11,8 @@ import com.dougdomingos.util.Util;
  * the previous and swaps their positions, until the previous element is
  * equal to or greater than the current element.
  * 
- * Time Complexity: O(n^2) | Space Complexity: O(1) | Stability: stable
+ * Time Complexity: O(n^2) | Space Complexity: O(1)
+ * Stability: Stable
  */
 public class InsertionSort<T extends Comparable<T>> extends AbstractSort<T> {
 

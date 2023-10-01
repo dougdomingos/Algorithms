@@ -9,7 +9,7 @@ import com.dougdomingos.sorts.AbstractSort;
  * recursively sorting them, and then merges the sorted halves to produce a
  * sorted array.
  * 
- * Time Complexity: O(n * log n) | Space Complexity: O(1)
+ * Time Complexity: O(n * log n) | Space Complexity: O(n)
  * Stability: Non-stable
  */
 public class MergeSort<T extends Comparable<T>> extends AbstractSort<T> {
