@@ -46,7 +46,7 @@ As I learn more, I'll add new implementations here. Currently, these are the str
 
 ### Node-based Structures
 - [X] Singly Linked List (SLL)
-- [ ] Double Linked List (DLL)
+- [X] Double Linked List (DLL)
 - [ ] Stack with SLL
 - [ ] Queue with DLL
 

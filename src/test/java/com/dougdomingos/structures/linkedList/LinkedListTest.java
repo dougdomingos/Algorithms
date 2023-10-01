@@ -117,6 +117,7 @@ public class LinkedListTest {
      */
     private static Stream<LinkedList<Integer>> lists() {
         return Stream.of(
-                new SinglyLinkedList<>());
+                new SinglyLinkedList<>(),
+                new DoubleLinkedList<>());
     }
 }

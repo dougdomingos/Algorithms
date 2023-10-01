@@ -8,12 +8,12 @@ public class SinglyLinkedListNode<T extends Comparable<T>> {
     /**
      * The value stored in the node.
      */
-    private T data;
+    protected T data;
 
     /**
      * A pointer to the next node in the list.
      */
-    private SinglyLinkedListNode<T> next;
+    protected SinglyLinkedListNode<T> next;
 
     /**
      * Creates a new node.
@@ -55,6 +55,6 @@ public class SinglyLinkedListNode<T extends Comparable<T>> {
 
         SinglyLinkedListNode<T> node = (SinglyLinkedListNode<T>) obj;
 
-        return this.data.compareTo(node.getData()) == 0;
+        return this.data.compareTo(node.data) == 0;
     }
 }
