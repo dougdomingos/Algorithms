@@ -150,7 +150,8 @@ public class QueueTest {
     private static Stream<Queue<Integer>> queues() {
         return Stream.of(
                 new CircularQueue<>(3),
-                new ArrayQueue<>(3));
+                new ArrayQueue<>(3), 
+                new LinkedListQueue<>(3));
     }
 
     /**
