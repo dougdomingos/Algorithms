@@ -21,7 +21,7 @@ to implement the following algorithms:
   - [X] Selection Sort
   - [X] Insertion Sort
   - [X] Bubble Sort
-  - [ ] Shaker Sort
+  - [X] Shaker Sort
 
 - **Logarithmic: O(n * log n)**
   - [X] Merge Sort

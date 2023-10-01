@@ -12,6 +12,7 @@ import com.dougdomingos.sorts.insertionSort.InsertionSort;
 import com.dougdomingos.sorts.mergeSort.MergeSort;
 import com.dougdomingos.sorts.quickSort.QuickSort;
 import com.dougdomingos.sorts.selectionSort.SelectionSort;
+import com.dougdomingos.sorts.shakerSort.ShakerSort;
 
 /**
  * Generic test class for sorting algorithms.
@@ -98,6 +99,7 @@ public class SortsTest {
                 new SelectionSort<>(),
                 new InsertionSort<>(),
                 new BubbleSort<>(),
+                new ShakerSort<>(),
                 new QuickSort<>(),
                 new MergeSort<>());
     }
