@@ -29,8 +29,8 @@ public class StackTest {
      */
     @BeforeEach
     void setUp() {
-        this.stack1 = new ArrayStack<>(5);
-        this.stack2 = new ArrayStack<>(5);
+        this.stack1 = new LinkedListStack<>(5);
+        this.stack2 = new LinkedListStack<>(5);
 
         // fills the stack
         fillStack(stack1, 5);
