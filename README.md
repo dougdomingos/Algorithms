@@ -28,7 +28,7 @@ to implement the following algorithms:
   - [X] Quick Sort
 
 - **Linear: O(n)**
-  - [ ] Counting Sort
+  - [X] Counting Sort
 
 ### Searching
 - [X] Binary Search
