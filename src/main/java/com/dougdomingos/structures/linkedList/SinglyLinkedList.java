@@ -25,6 +25,13 @@ public class SinglyLinkedList<T extends Comparable<T>> implements LinkedList<T> 
         this.head = null;
     }
 
+    /**
+     * Remove the first element of the list.
+     */
+    public void removeFirst() {
+        head = head.getNext();
+    }
+
     @Override
     public void insertFirst(T element) {
         SinglyLinkedListNode<T> newHead = new SinglyLinkedListNode<>(element);
@@ -62,7 +69,7 @@ public class SinglyLinkedList<T extends Comparable<T>> implements LinkedList<T> 
 
         SinglyLinkedListNode<T> node = new SinglyLinkedListNode<>(element);
         if (head.equals(node)) {
-            head = head.getNext();
+            removeFirst();
         } else {
             remove(head, new SinglyLinkedListNode<>(element));
         }

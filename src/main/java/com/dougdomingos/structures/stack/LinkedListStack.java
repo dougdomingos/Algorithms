@@ -26,8 +26,8 @@ public class LinkedListStack<T extends Comparable<T>> implements Stack<T> {
             throw new StructureUnderflowException();
         }
 
-        T topElement = list.peekLast();
-        list.remove(topElement);
+        T topElement = list.peekFirst();
+        list.removeFirst();
         return topElement;
     }
 
@@ -37,7 +37,7 @@ public class LinkedListStack<T extends Comparable<T>> implements Stack<T> {
             throw new StructureOverflowException();
         }
 
-        list.insertLast(element);
+        list.insertFirst(element);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class LinkedListStack<T extends Comparable<T>> implements Stack<T> {
             return null;
         }
 
-        return list.peekLast();
+        return list.peekFirst();
     }
 
     @Override
