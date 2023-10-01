@@ -8,6 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import com.dougdomingos.sorts.bubbleSort.BubbleSort;
+import com.dougdomingos.sorts.countingSort.CountingSort;
 import com.dougdomingos.sorts.insertionSort.InsertionSort;
 import com.dougdomingos.sorts.mergeSort.MergeSort;
 import com.dougdomingos.sorts.quickSort.QuickSort;
@@ -101,6 +102,7 @@ public class SortsTest {
                 new BubbleSort<>(),
                 new ShakerSort<>(),
                 new QuickSort<>(),
-                new MergeSort<>());
+                new MergeSort<>(),
+                new CountingSort());
     }
 }
