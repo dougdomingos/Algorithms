@@ -1,7 +1,6 @@
 package com.dougdomingos.sorts.bubbleSort;
 
 import com.dougdomingos.sorts.AbstractSort;
-import com.dougdomingos.util.Util;
 
 /**
  * Bubble Sort.
@@ -28,7 +27,7 @@ public class BubbleSort<T extends Comparable<T>> extends AbstractSort<T> {
                 T nextElement = array[i + 1];
 
                 if (array[i].compareTo(nextElement) > 0) {
-                    Util.swap(array, i, i + 1);
+                    swap(array, i, i + 1);
                     hasSwapped = true;
                 }
             }

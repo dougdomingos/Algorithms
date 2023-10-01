@@ -1,7 +1,6 @@
 package com.dougdomingos.sorts.shakerSort;
 
 import com.dougdomingos.sorts.AbstractSort;
-import com.dougdomingos.util.Util;
 
 /**
  * Shaker Sort.
@@ -32,7 +31,7 @@ public class ShakerSort<T extends Comparable<T>> extends AbstractSort<T> {
                 T nextElement = array[i + 1];
 
                 if (array[i].compareTo(nextElement) > 0) {
-                    Util.swap(array, i, i + 1);
+                    swap(array, i, i + 1);
                     hasSwapped = true;
                 }
             }
@@ -42,7 +41,7 @@ public class ShakerSort<T extends Comparable<T>> extends AbstractSort<T> {
                 T previousElement = array[i - 1];
 
                 if (array[i].compareTo(previousElement) < 0) {
-                    Util.swap(array, i, i - 1);
+                    swap(array, i, i - 1);
                     hasSwapped = true;
                 }
             }

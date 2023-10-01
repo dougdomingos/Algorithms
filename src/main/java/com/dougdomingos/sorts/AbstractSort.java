@@ -21,4 +21,20 @@ public abstract class AbstractSort<T extends Comparable<T>> implements Sorting<T
      * @param right The end index of the sort
      */
     public abstract void sort(T[] array, int left, int right);
+
+    /**
+     * Swaps the elements of two positions in an array;
+     *
+     * @param array The array to be modified
+     * @param i     First target position
+     * @param j     Second target position
+     */
+    protected void swap(T[] array, int i, int j) {
+        if (array == null)
+            throw new IllegalArgumentException("Array is null");
+
+        T tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
 }

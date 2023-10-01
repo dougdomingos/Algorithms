@@ -1,7 +1,6 @@
 package com.dougdomingos.sorts.insertionSort;
 
 import com.dougdomingos.sorts.AbstractSort;
-import com.dougdomingos.util.Util;
 
 /**
  * Insertion Sort.
@@ -27,7 +26,7 @@ public class InsertionSort<T extends Comparable<T>> extends AbstractSort<T> {
 			// shift the element to the left until the previous element is smaller
 			while (indexSorted >= 0 && !isGreater) {
 				if (array[indexValue].compareTo(array[indexSorted]) < 0) {
-					Util.swap(array, indexValue, indexSorted);
+					swap(array, indexValue, indexSorted);
 					indexValue--;
 				} else {
 					isGreater = true;

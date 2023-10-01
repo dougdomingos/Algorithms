@@ -1,7 +1,6 @@
 package com.dougdomingos.sorts.quickSort;
 
 import com.dougdomingos.sorts.AbstractSort;
-import com.dougdomingos.util.Util;
 
 /**
  * Quick Sort.
@@ -35,7 +34,7 @@ public class QuickSort<T extends Comparable<T>> extends AbstractSort<T> {
     private int lomutoPartition(T[] array, int left, int right) {
         // move the chosen pivot to the start of the array
         int indexPivot = getRandomPivot(left, right);
-        Util.swap(array, left, indexPivot);
+        swap(array, left, indexPivot);
         indexPivot = left;
 
         // place the elements that are less than or equal to the pivot at its right
@@ -43,12 +42,12 @@ public class QuickSort<T extends Comparable<T>> extends AbstractSort<T> {
         for (int i = left + 1; i <= right; i++) {
             if (array[i].compareTo(array[indexPivot]) <= 0) {
                 indexLastSmallest++;
-                Util.swap(array, indexLastSmallest, i);
+                swap(array, indexLastSmallest, i);
             }
         }
 
         // swap the pivot with the last smallest
-        Util.swap(array, indexPivot, indexLastSmallest);
+        swap(array, indexPivot, indexLastSmallest);
 
         return indexLastSmallest;
     }

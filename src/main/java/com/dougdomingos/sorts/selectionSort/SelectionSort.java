@@ -1,7 +1,6 @@
 package com.dougdomingos.sorts.selectionSort;
 
 import com.dougdomingos.sorts.AbstractSort;
-import com.dougdomingos.util.Util;
 
 /**
  * Selection Sort.
@@ -28,7 +27,7 @@ public class SelectionSort<T extends Comparable<T>> extends AbstractSort<T> {
                     smallest = j;
             }
 
-            Util.swap(array, smallest, i);
+            swap(array, smallest, i);
         }
     }
 }
