@@ -1,6 +1,6 @@
 package com.dougdomingos.structures.hashTable;
 
-import com.dougdomingos.structures.hashTable.hashFunctions.HashFunction;
+import com.dougdomingos.structures.hashTable.hashing.HashFunction;
 
 /**
  * An abstract base class for implementing a Hash Table.

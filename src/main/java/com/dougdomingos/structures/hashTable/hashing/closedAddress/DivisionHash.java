@@ -1,6 +1,6 @@
-package com.dougdomingos.structures.hashTable.hashFunctions.closedAddress;
+package com.dougdomingos.structures.hashTable.hashing.closedAddress;
 
-public class DivisionHash<T> implements ClosedAddressHashFunction<T> {
+public class DivisionHash<T> implements ClosedAddressHashing<T> {
 
     @Override
     public int hash(T element, int tableSize) {

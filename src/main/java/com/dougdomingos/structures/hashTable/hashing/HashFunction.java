@@ -1,4 +1,4 @@
-package com.dougdomingos.structures.hashTable.hashFunctions;
+package com.dougdomingos.structures.hashTable.hashing;
 
 /**
  * Marker interface for defining the type of hash functions.

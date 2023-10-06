@@ -1,11 +1,11 @@
-package com.dougdomingos.structures.hashTable.hashFunctions;
+package com.dougdomingos.structures.hashTable.hashing;
 
-import com.dougdomingos.structures.hashTable.hashFunctions.closedAddress.ClosedAddressHash;
-import com.dougdomingos.structures.hashTable.hashFunctions.closedAddress.DivisionHash;
-import com.dougdomingos.structures.hashTable.hashFunctions.closedAddress.MultiplicationHash;
-import com.dougdomingos.structures.hashTable.hashFunctions.openAddress.DoubleHashing;
-import com.dougdomingos.structures.hashTable.hashFunctions.openAddress.LinearProbingHash;
-import com.dougdomingos.structures.hashTable.hashFunctions.openAddress.OpenAddressHash;
+import com.dougdomingos.structures.hashTable.hashing.closedAddress.ClosedAddressHash;
+import com.dougdomingos.structures.hashTable.hashing.closedAddress.DivisionHash;
+import com.dougdomingos.structures.hashTable.hashing.closedAddress.MultiplicationHash;
+import com.dougdomingos.structures.hashTable.hashing.openAddress.DoubleHashing;
+import com.dougdomingos.structures.hashTable.hashing.openAddress.LinearProbingHash;
+import com.dougdomingos.structures.hashTable.hashing.openAddress.OpenAddressHash;
 
 /**
  * Utility class for building hash functions.

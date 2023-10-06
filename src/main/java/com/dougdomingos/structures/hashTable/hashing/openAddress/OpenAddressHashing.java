@@ -1,11 +1,11 @@
-package com.dougdomingos.structures.hashTable.hashFunctions.openAddress;
+package com.dougdomingos.structures.hashTable.hashing.openAddress;
 
-import com.dougdomingos.structures.hashTable.hashFunctions.HashFunction;
+import com.dougdomingos.structures.hashTable.hashing.HashFunction;
 
 /**
  * Interface for implementing a open address hash function.
  */
-public interface OpenAddressHashFunction<T> extends HashFunction {
+public interface OpenAddressHashing<T> extends HashFunction {
 
     /**
      * Returns the hash of the element for a certain table size and probe index.

@@ -1,6 +1,6 @@
-package com.dougdomingos.structures.hashTable.hashFunctions.closedAddress;
+package com.dougdomingos.structures.hashTable.hashing.closedAddress;
 
-public class MultiplicationHash<T> implements ClosedAddressHashFunction<T> {
+public class MultiplicationHash<T> implements ClosedAddressHashing<T> {
 
     private final double K = (Math.sqrt(5) - 1) / 2;
 

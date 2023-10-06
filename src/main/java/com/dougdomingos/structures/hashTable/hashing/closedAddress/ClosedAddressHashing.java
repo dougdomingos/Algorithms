@@ -1,11 +1,11 @@
-package com.dougdomingos.structures.hashTable.hashFunctions.closedAddress;
+package com.dougdomingos.structures.hashTable.hashing.closedAddress;
 
-import com.dougdomingos.structures.hashTable.hashFunctions.HashFunction;
+import com.dougdomingos.structures.hashTable.hashing.HashFunction;
 
 /**
  * Interface for implementing a closed address hash function.
  */
-public interface ClosedAddressHashFunction<T> extends HashFunction {
+public interface ClosedAddressHashing<T> extends HashFunction {
 
     /**
      * Returns the hash of the element for a certain table size.
