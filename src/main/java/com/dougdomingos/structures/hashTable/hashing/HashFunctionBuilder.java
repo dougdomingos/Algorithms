@@ -14,57 +14,58 @@ import com.dougdomingos.structures.hashTable.hashing.openAddress.OpenAddressHash
  */
 public class HashFunctionBuilder<T> {
 
-    /**
-     * Creates a closed address hash function.
-     * 
-     * @param method
-     *            The method of hashing used by the function (e.g., DIVISION,
-     *            MULTIPLICATION)
-     * @return The function with the selected method, or null if the method is
-     *         not recognized
-     */
-    public static <T> ClosedAddressHashing<T> buildClosedAddressHash(
-            ClosedAddressHash method) {
+	/**
+	 * Creates a closed address hash function.
+	 *
+	 * @param method
+	 *            The method of hashing used by the function (e.g., DIVISION,
+	 *            MULTIPLICATION)
+	 * @return The function with the selected method, or null if the method is
+	 *         not recognized
+	 */
+	public static <T> ClosedAddressHashing<T> buildClosedAddressHash(
+			ClosedAddressHash method) {
 
-        ClosedAddressHashing<T> hashFunction = null;
+		ClosedAddressHashing<T> hashFunction = null;
 
-        switch (method) {
-            case DIVISION:
-                hashFunction = new DivisionHash<>();
-                break;
+		switch (method) {
+			case DIVISION:
+				hashFunction = new DivisionHash<>();
+				break;
 
-            case MULTIPLICATION:
-                hashFunction = new MultiplicationHash<>();
-                break;
-        }
+			case MULTIPLICATION:
+				hashFunction = new MultiplicationHash<>();
+				break;
+		}
 
-        return hashFunction;
-    }
+		return hashFunction;
+	}
 
-    /**
-     * Creates a open address hash function.
-     * 
-     * @param method
-     *            The method of hashing used by the function (e.g.,
-     *            LINEAR_PROBING, DOUBLE_HASHING)
-     * @return The function with the selected method, or null if the method is
-     *         not recognized
-     */
-    public static <T> OpenAddressHashing<T> buildOpenAddressHash(OpenAddressHash method) {
+	/**
+	 * Creates a open address hash function.
+	 *
+	 * @param method
+	 *            The method of hashing used by the function (e.g.,
+	 *            LINEAR_PROBING, DOUBLE_HASHING)
+	 * @return The function with the selected method, or null if the method is
+	 *         not recognized
+	 */
+	public static <T> OpenAddressHashing<T> buildOpenAddressHash(
+			OpenAddressHash method) {
 
-        OpenAddressHashing<T> hashFunction = null;
+		OpenAddressHashing<T> hashFunction = null;
 
-        switch (method) {
-            case LINEAR_PROBING:
-                hashFunction = new LinearProbingHash<>(new DivisionHash<>());
-                break;
+		switch (method) {
+			case LINEAR_PROBING:
+				hashFunction = new LinearProbingHash<>(new DivisionHash<>());
+				break;
 
-            case DOUBLE_HASHING:
-                hashFunction = new DoubleHashing<>(new DivisionHash<>(),
-                        new MultiplicationHash<>());
-                break;
-        }
+			case DOUBLE_HASHING:
+				hashFunction = new DoubleHashing<>(new DivisionHash<>(),
+						new MultiplicationHash<>());
+				break;
+		}
 
-        return hashFunction;
-    }
+		return hashFunction;
+	}
 }

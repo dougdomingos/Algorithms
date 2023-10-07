@@ -4,17 +4,17 @@ import com.dougdomingos.structures.hashTable.hashing.closedAddress.ClosedAddress
 
 public class LinearProbingHash<T> implements OpenAddressHashing<T> {
 
-    private ClosedAddressHashing<T> auxHash;
+	private ClosedAddressHashing<T> auxHash;
 
-    public LinearProbingHash(ClosedAddressHashing<T> hashFunction) {
-        this.auxHash = hashFunction;
-    }
+	public LinearProbingHash(ClosedAddressHashing<T> hashFunction) {
+		this.auxHash = hashFunction;
+	}
 
-    @Override
-    public int hash(T element, int tableSize, int probeIndex) {
-        int hash = (auxHash.hash(element, tableSize) + probeIndex) % tableSize;
+	@Override
+	public int hash(T element, int tableSize, int probeIndex) {
+		int hash = (auxHash.hash(element, tableSize) + probeIndex) % tableSize;
 
-        return hash;
-    }
+		return hash;
+	}
 
 }

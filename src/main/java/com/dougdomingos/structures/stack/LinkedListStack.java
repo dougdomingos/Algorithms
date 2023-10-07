@@ -6,76 +6,76 @@ import com.dougdomingos.structures.linkedList.SinglyLinkedList;
 
 public class LinkedListStack<T extends Comparable<T>> implements Stack<T> {
 
-    private SinglyLinkedList<T> list;
+	private SinglyLinkedList<T> list;
 
-    private int capacity;
+	private int capacity;
 
-    public LinkedListStack() {
-        this.list = new SinglyLinkedList<>();
-        this.capacity = Integer.MAX_VALUE;
-    }
+	public LinkedListStack() {
+		this.list = new SinglyLinkedList<>();
+		this.capacity = Integer.MAX_VALUE;
+	}
 
-    public LinkedListStack(int capacity) {
-        this.list = new SinglyLinkedList<>();
-        this.capacity = capacity;
-    }
+	public LinkedListStack(int capacity) {
+		this.list = new SinglyLinkedList<>();
+		this.capacity = capacity;
+	}
 
-    @Override
-    public T pop() throws StructureUnderflowException {
-        if (isEmpty()) {
-            throw new StructureUnderflowException();
-        }
+	@Override
+	public T pop() throws StructureUnderflowException {
+		if (isEmpty()) {
+			throw new StructureUnderflowException();
+		}
 
-        T topElement = list.peekFirst();
-        list.removeFirst();
-        return topElement;
-    }
+		T topElement = list.peekFirst();
+		list.removeFirst();
+		return topElement;
+	}
 
-    @Override
-    public void push(T element) throws StructureOverflowException {
-        if (isFull()) {
-            throw new StructureOverflowException();
-        }
+	@Override
+	public void push(T element) throws StructureOverflowException {
+		if (isFull()) {
+			throw new StructureOverflowException();
+		}
 
-        list.insertFirst(element);
-    }
+		list.insertFirst(element);
+	}
 
-    @Override
-    public T peek() {
-        if (isEmpty()) {
-            return null;
-        }
+	@Override
+	public T peek() {
+		if (isEmpty()) {
+			return null;
+		}
 
-        return list.peekFirst();
-    }
+		return list.peekFirst();
+	}
 
-    @Override
-    public boolean contains(T element) {
-        if (isEmpty()) {
-            return false;
-        }
+	@Override
+	public boolean contains(T element) {
+		if (isEmpty()) {
+			return false;
+		}
 
-        return list.contains(element);
-    }
+		return list.contains(element);
+	}
 
-    @Override
-    public boolean isEmpty() {
-        return list.isEmpty();
-    }
+	@Override
+	public boolean isEmpty() {
+		return list.isEmpty();
+	}
 
-    @Override
-    public boolean isFull() {
-        return list.size() == capacity;
-    }
+	@Override
+	public boolean isFull() {
+		return list.size() == capacity;
+	}
 
-    @Override
-    public int size() {
-        return list.size();
-    }
+	@Override
+	public int size() {
+		return list.size();
+	}
 
-    @Override
-    public int capacity() {
-        return capacity;
-    }
-    
+	@Override
+	public int capacity() {
+		return capacity;
+	}
+
 }

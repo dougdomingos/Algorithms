@@ -18,156 +18,155 @@ import com.dougdomingos.structures.hashTable.hashing.closedAddress.ClosedAddress
 
 public class ClosedAddressHashTableTest {
 
-    @ParameterizedTest
-    @MethodSource("tables")
-    void testContains(ClosedAddressHashTable<Integer> table) {
-        try {
-            table.insert(10);
-        } catch (StructureOverflowException e) {
-            fail(e.getMessage());
-        }
+	@ParameterizedTest
+	@MethodSource("tables")
+	void testContains(ClosedAddressHashTable<Integer> table) {
+		try {
+			table.insert(10);
+		} catch (StructureOverflowException e) {
+			fail(e.getMessage());
+		}
 
-        assertTrue(table.contains(10));
-    }
+		assertTrue(table.contains(10));
+	}
 
-    @ParameterizedTest
-    @MethodSource("tables")
-    void testNotContains(ClosedAddressHashTable<Integer> table) {
-        assertFalse(table.contains(10));
-    }
+	@ParameterizedTest
+	@MethodSource("tables")
+	void testNotContains(ClosedAddressHashTable<Integer> table) {
+		assertFalse(table.contains(10));
+	}
 
-    @ParameterizedTest
-    @MethodSource("tables")
-    void testIndexOf(ClosedAddressHashTable<Integer> table) {
-        try {
-            table.insert(10);
-        } catch (StructureOverflowException e) {
-            fail(e.getMessage());
-        }
+	@ParameterizedTest
+	@MethodSource("tables")
+	void testIndexOf(ClosedAddressHashTable<Integer> table) {
+		try {
+			table.insert(10);
+		} catch (StructureOverflowException e) {
+			fail(e.getMessage());
+		}
 
-        assertNotEquals(-1, table.indexOf(10));
-    }
+		assertNotEquals(-1, table.indexOf(10));
+	}
 
-    @ParameterizedTest
-    @MethodSource("tables")
-    void testInsert(ClosedAddressHashTable<Integer> table) {
-        Integer[] testValues = new Integer[] { 1, 2, 3, 4, 5 };
+	@ParameterizedTest
+	@MethodSource("tables")
+	void testInsert(ClosedAddressHashTable<Integer> table) {
+		Integer[] testValues = new Integer[] { 1, 2, 3, 4, 5 };
 
-        try {
-            insertValuesOnTable(testValues, table);
-        } catch (StructureOverflowException e) {
-            fail(e.getMessage());
-        }
+		try {
+			insertValuesOnTable(testValues, table);
+		} catch (StructureOverflowException e) {
+			fail(e.getMessage());
+		}
 
-        assertTrue(() -> {
-            boolean result = true;
-            for (Integer val : testValues) {
-                if (!table.contains(val)) {
-                    result = false;
-                }
-            }
+		assertTrue(() -> {
+			boolean result = true;
+			for (Integer val : testValues) {
+				if (!table.contains(val)) {
+					result = false;
+				}
+			}
 
-            return result;
-        });
-    }
+			return result;
+		});
+	}
 
-    @ParameterizedTest
-    @MethodSource("tables")
-    void testRemove(ClosedAddressHashTable<Integer> table) {
-        Integer[] testValues = new Integer[] { 5, 10, 15, 20, 25 };
+	@ParameterizedTest
+	@MethodSource("tables")
+	void testRemove(ClosedAddressHashTable<Integer> table) {
+		Integer[] testValues = new Integer[] { 5, 10, 15, 20, 25 };
 
-        try {
-            insertValuesOnTable(testValues, table);
+		try {
+			insertValuesOnTable(testValues, table);
 
-            for (Integer val : testValues) {
-                table.remove(val);
-            }
-        } catch (StructureOverflowException | StructureUnderflowException e) {
-            fail(e.getMessage());
-        }
+			for (Integer val : testValues) {
+				table.remove(val);
+			}
+		} catch (StructureOverflowException | StructureUnderflowException e) {
+			fail(e.getMessage());
+		}
 
-        assertFalse(() -> {
-            boolean result = false;
-            for (Integer val : testValues) {
-                if (table.contains(val)) {
-                    result = true;
-                }
-            }
+		assertFalse(() -> {
+			boolean result = false;
+			for (Integer val : testValues) {
+				if (table.contains(val)) {
+					result = true;
+				}
+			}
 
-            return result;
-        });
-    }
+			return result;
+		});
+	}
 
-    @ParameterizedTest
-    @MethodSource("tables")
-    void testRemoveEmpty(ClosedAddressHashTable<Integer> table) {
-        assertThrows(StructureUnderflowException.class, () -> table.remove(10));
-    }
+	@ParameterizedTest
+	@MethodSource("tables")
+	void testRemoveEmpty(ClosedAddressHashTable<Integer> table) {
+		assertThrows(StructureUnderflowException.class, () -> table.remove(10));
+	}
 
-    @ParameterizedTest
-    @MethodSource("tables")
-    void testIsEmpty(ClosedAddressHashTable<Integer> table) {
-        assertTrue(table.isEmpty());
-    }
+	@ParameterizedTest
+	@MethodSource("tables")
+	void testIsEmpty(ClosedAddressHashTable<Integer> table) {
+		assertTrue(table.isEmpty());
+	}
 
-    @ParameterizedTest
-    @MethodSource("tables")
-    void testIsNotEmpty(ClosedAddressHashTable<Integer> table) {
-        try {
-            table.insert(10);
-        } catch (StructureOverflowException e) {
-            fail(e.getMessage());
-        }
+	@ParameterizedTest
+	@MethodSource("tables")
+	void testIsNotEmpty(ClosedAddressHashTable<Integer> table) {
+		try {
+			table.insert(10);
+		} catch (StructureOverflowException e) {
+			fail(e.getMessage());
+		}
 
-        assertFalse(table.isEmpty());
-    }
+		assertFalse(table.isEmpty());
+	}
 
-    @ParameterizedTest
-    @MethodSource("tables")
-    void testSizeEmpty(ClosedAddressHashTable<Integer> table) {
-        assertEquals(0, table.size());
-    }
+	@ParameterizedTest
+	@MethodSource("tables")
+	void testSizeEmpty(ClosedAddressHashTable<Integer> table) {
+		assertEquals(0, table.size());
+	}
 
-    @ParameterizedTest
-    @MethodSource("tables")
-    void testSizeAfterInsert(ClosedAddressHashTable<Integer> table) {
-        try {
-            insertValuesOnTable(new Integer[] { 1, 2, 3, 4, 5 }, table);
-        } catch (StructureOverflowException e) {
-            fail(e.getMessage());
-        }
+	@ParameterizedTest
+	@MethodSource("tables")
+	void testSizeAfterInsert(ClosedAddressHashTable<Integer> table) {
+		try {
+			insertValuesOnTable(new Integer[] { 1, 2, 3, 4, 5 }, table);
+		} catch (StructureOverflowException e) {
+			fail(e.getMessage());
+		}
 
-        assertEquals(5, table.size());
-    }
+		assertEquals(5, table.size());
+	}
 
-    @ParameterizedTest
-    @MethodSource("tables")
-    void testSizeAfterRemove(ClosedAddressHashTable<Integer> table) {
-        try {
-            insertValuesOnTable(new Integer[] { 1, 2, 3, 4, 5 }, table);
-            table.remove(5);
-        } catch (StructureOverflowException | StructureUnderflowException e) {
-            fail(e.getMessage());
-        }
+	@ParameterizedTest
+	@MethodSource("tables")
+	void testSizeAfterRemove(ClosedAddressHashTable<Integer> table) {
+		try {
+			insertValuesOnTable(new Integer[] { 1, 2, 3, 4, 5 }, table);
+			table.remove(5);
+		} catch (StructureOverflowException | StructureUnderflowException e) {
+			fail(e.getMessage());
+		}
 
-        assertEquals(4, table.size());
-    }
+		assertEquals(4, table.size());
+	}
 
-    private static Stream<ClosedAddressHashTable<Integer>> tables() {
-        return Stream.of(
-                new ClosedAddressHashTable<>(5,
-                        ClosedAddressHash.DIVISION),
-                new ClosedAddressHashTable<>(5,
-                        ClosedAddressHash.MULTIPLICATION));
-    }
+	private static Stream<ClosedAddressHashTable<Integer>> tables() {
+		return Stream.of(
+				new ClosedAddressHashTable<>(5, ClosedAddressHash.DIVISION),
+				new ClosedAddressHashTable<>(5,
+						ClosedAddressHash.MULTIPLICATION));
+	}
 
-    private void insertValuesOnTable(Integer[] values,
-            ClosedAddressHashTable<Integer> table)
-            throws StructureOverflowException {
+	private void insertValuesOnTable(Integer[] values,
+			ClosedAddressHashTable<Integer> table)
+			throws StructureOverflowException {
 
-        for (Integer val : values) {
-            table.insert(val);
-        }
-    }
+		for (Integer val : values) {
+			table.insert(val);
+		}
+	}
 
 }
