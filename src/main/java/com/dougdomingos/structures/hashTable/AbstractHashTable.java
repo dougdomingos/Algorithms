@@ -11,17 +11,15 @@ import com.dougdomingos.structures.hashTable.hashing.HashFunction;
  * @param <T>
  *            The type of value being stored in the table
  * @param <S>
- *            The type of the table array
- * @param <U>
  *            The type of hash function used in the table
  */
-public abstract class AbstractHashTable<T, S, U extends HashFunction>
+public abstract class AbstractHashTable<T, S extends HashFunction>
         implements HashTable<T> {
 
     /**
      * The array representing the table.
      */
-    protected S[] table;
+    protected Object[] table;
 
     /**
      * The number of collisions in the table.
@@ -36,7 +34,7 @@ public abstract class AbstractHashTable<T, S, U extends HashFunction>
     /**
      * The hash function used in the table.
      */
-    protected U hashFunction;
+    protected S hashFunction;
 
     /**
      * Creates a new Hash Table.
@@ -44,9 +42,8 @@ public abstract class AbstractHashTable<T, S, U extends HashFunction>
      * @param capacity
      *            The size of the table
      */
-    @SuppressWarnings("unchecked")
-    public AbstractHashTable(int capacity, U hashFunction) {
-        this.table = (S[]) new Object[capacity];
+    public AbstractHashTable(int capacity, S hashFunction) {
+        this.table = new Object[capacity];
         this.COLLISIONS = 0;
         this.elements = 0;
         this.hashFunction = hashFunction;

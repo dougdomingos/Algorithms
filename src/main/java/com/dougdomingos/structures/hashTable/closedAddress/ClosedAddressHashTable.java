@@ -14,7 +14,7 @@ import com.dougdomingos.structures.linkedList.SinglyLinkedList;
  */
 public class ClosedAddressHashTable<T extends Comparable<T>>
         extends
-        AbstractHashTable<T, SinglyLinkedList<T>, ClosedAddressHashing<T>> {
+        AbstractHashTable<T, ClosedAddressHashing<T>> {
 
     /**
      * Creates a new closed address table.
@@ -29,6 +29,7 @@ public class ClosedAddressHashTable<T extends Comparable<T>>
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void insert(T element) throws StructureOverflowException {
         if (isFull()) {
             throw new StructureOverflowException();
@@ -37,7 +38,7 @@ public class ClosedAddressHashTable<T extends Comparable<T>>
         if (indexOf(element) == -1) {
             int hash = hashFunction.hash(element, table.length);
 
-            if (table[hash] != null) {
+            if (table[hash] == null) {
                 table[hash] = new SinglyLinkedList<>();
             } else {
                 COLLISIONS++;
@@ -49,6 +50,7 @@ public class ClosedAddressHashTable<T extends Comparable<T>>
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void remove(T element) throws StructureUnderflowException {
         if (isEmpty()) {
             throw new StructureUnderflowException();
@@ -57,10 +59,12 @@ public class ClosedAddressHashTable<T extends Comparable<T>>
         int indexOnTable = indexOf(element);
 
         if (indexOnTable != -1) {
-            if (table[indexOnTable].size() == 1) {
+            SinglyLinkedList<T> list = (SinglyLinkedList<T>) table[indexOnTable];
+
+            if (list.size() == 1) {
                 table[indexOnTable] = null;
             } else {
-                table[indexOnTable].remove(element);
+                list.remove(element);
             }
 
             elements--;
@@ -69,6 +73,7 @@ public class ClosedAddressHashTable<T extends Comparable<T>>
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public boolean contains(T element) {
         if (isEmpty() || element == null) {
             return false;
@@ -78,26 +83,28 @@ public class ClosedAddressHashTable<T extends Comparable<T>>
         int indexOnTable = indexOf(element);
 
         if (indexOnTable != -1) {
-            found = table[indexOnTable].contains(element);
+            SinglyLinkedList<T> list = (SinglyLinkedList<T>) table[indexOnTable];
+            found = list.contains(element);
         }
 
         return found;
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public int indexOf(T element) {
         if (isEmpty() || element == null) {
             return -1;
         }
 
         int indexOfElement = -1;
-        int hash = hashFunction.hash(element, indexOfElement);
+        int hash = hashFunction.hash(element, table.length);
+        SinglyLinkedList<T> list = (SinglyLinkedList<T>) table[hash];
 
-        if (table[hash] != null && table[hash].contains(element)) {
+        if (list != null && list.contains(element)) {
             indexOfElement = hash;
         }
 
         return indexOfElement;
     }
-
 }
