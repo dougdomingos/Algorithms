@@ -4,17 +4,24 @@ import com.dougdomingos.structures.hashTable.hashing.HashFunction;
 
 /**
  * An abstract base class for implementing a Hash Table.
- * 
  * This class provides default implementation for the methods `capacity`,
  * `size`, `isEmpty` and `isFull`, given that the difference in the tables
  * will be the way they handle the elements.
+ * 
+ * @param <T>
+ *            The type of value being stored in the table
+ * @param <S>
+ *            The type of the table array
+ * @param <U>
+ *            The type of hash function used in the table
  */
-public abstract class AbstractHashTable<T> implements HashTable<T> {
+public abstract class AbstractHashTable<T, S, U extends HashFunction>
+        implements HashTable<T> {
 
     /**
      * The array representing the table.
      */
-    protected Object[] table;
+    protected S[] table;
 
     /**
      * The number of collisions in the table.
@@ -29,15 +36,17 @@ public abstract class AbstractHashTable<T> implements HashTable<T> {
     /**
      * The hash function used in the table.
      */
-    protected HashFunction hashFunction;
+    protected U hashFunction;
 
     /**
      * Creates a new Hash Table.
      * 
-     * @param capacity The size of the table
+     * @param capacity
+     *            The size of the table
      */
-    public AbstractHashTable(int capacity, HashFunction hashFunction) {
-        this.table = new Object[capacity];
+    @SuppressWarnings("unchecked")
+    public AbstractHashTable(int capacity, U hashFunction) {
+        this.table = (S[]) new Object[capacity];
         this.COLLISIONS = 0;
         this.elements = 0;
         this.hashFunction = hashFunction;

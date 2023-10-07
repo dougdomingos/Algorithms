@@ -1,16 +1,18 @@
 package com.dougdomingos.structures.hashTable.hashing;
 
 import com.dougdomingos.structures.hashTable.hashing.closedAddress.ClosedAddressHash;
+import com.dougdomingos.structures.hashTable.hashing.closedAddress.ClosedAddressHashing;
 import com.dougdomingos.structures.hashTable.hashing.closedAddress.DivisionHash;
 import com.dougdomingos.structures.hashTable.hashing.closedAddress.MultiplicationHash;
 import com.dougdomingos.structures.hashTable.hashing.openAddress.DoubleHashing;
 import com.dougdomingos.structures.hashTable.hashing.openAddress.LinearProbingHash;
 import com.dougdomingos.structures.hashTable.hashing.openAddress.OpenAddressHash;
+import com.dougdomingos.structures.hashTable.hashing.openAddress.OpenAddressHashing;
 
 /**
  * Utility class for building hash functions.
  */
-public class HashFunctionBuilder {
+public class HashFunctionBuilder<T> {
 
     /**
      * Creates a closed address hash function.
@@ -21,10 +23,10 @@ public class HashFunctionBuilder {
      * @return The function with the selected method, or null if the method is
      *         not recognized
      */
-    public static HashFunction buildClosedAddressHash(
+    public static <T> ClosedAddressHashing<T> buildClosedAddressHash(
             ClosedAddressHash method) {
 
-        HashFunction hashFunction = null;
+        ClosedAddressHashing<T> hashFunction = null;
 
         switch (method) {
             case DIVISION:
@@ -48,9 +50,9 @@ public class HashFunctionBuilder {
      * @return The function with the selected method, or null if the method is
      *         not recognized
      */
-    public static HashFunction buildOpenAddressHash(OpenAddressHash method) {
+    public static <T> OpenAddressHashing<T> buildOpenAddressHash(OpenAddressHash method) {
 
-        HashFunction hashFunction = null;
+        OpenAddressHashing<T> hashFunction = null;
 
         switch (method) {
             case LINEAR_PROBING:
