@@ -61,8 +61,7 @@ public class HashFunctionBuilder<T> {
 				break;
 
 			case DOUBLE_HASHING:
-				hashFunction = new DoubleHashing<>(new DivisionHash<>(),
-						new MultiplicationHash<>());
+				hashFunction = new DoubleHashing<>(new DivisionHash<>());
 				break;
 		}
 
