@@ -2,7 +2,7 @@ package com.dougdomingos.structures.stack;
 
 import com.dougdomingos.structures.StructureOverflowException;
 import com.dougdomingos.structures.StructureUnderflowException;
-import com.dougdomingos.structures.linkedList.SinglyLinkedList;
+import com.dougdomingos.structures.linkedlist.SinglyLinkedList;
 
 public class LinkedListStack<T extends Comparable<T>> implements Stack<T> {
 

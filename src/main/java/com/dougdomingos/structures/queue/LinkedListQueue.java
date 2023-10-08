@@ -2,7 +2,7 @@ package com.dougdomingos.structures.queue;
 
 import com.dougdomingos.structures.StructureOverflowException;
 import com.dougdomingos.structures.StructureUnderflowException;
-import com.dougdomingos.structures.linkedList.DoubleLinkedList;
+import com.dougdomingos.structures.linkedlist.DoubleLinkedList;
 
 public class LinkedListQueue<T extends Comparable<T>> implements Queue<T> {
 
