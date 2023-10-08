@@ -1,4 +1,4 @@
-package com.dougdomingos.sorts.insertionsort;
+package com.dougdomingos.sorts.quadratic;
 
 import com.dougdomingos.sorts.AbstractSort;
 

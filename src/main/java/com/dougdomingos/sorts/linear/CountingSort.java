@@ -1,4 +1,4 @@
-package com.dougdomingos.sorts.countingsort;
+package com.dougdomingos.sorts.linear;
 
 import com.dougdomingos.sorts.AbstractSort;
 

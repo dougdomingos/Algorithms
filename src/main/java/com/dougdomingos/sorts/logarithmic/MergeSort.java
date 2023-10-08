@@ -1,4 +1,4 @@
-package com.dougdomingos.sorts.mergesort;
+package com.dougdomingos.sorts.logarithmic;
 
 import com.dougdomingos.sorts.AbstractSort;
 

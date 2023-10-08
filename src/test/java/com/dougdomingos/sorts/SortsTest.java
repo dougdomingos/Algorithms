@@ -7,13 +7,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import com.dougdomingos.sorts.bubblesort.BubbleSort;
-import com.dougdomingos.sorts.countingsort.CountingSort;
-import com.dougdomingos.sorts.insertionsort.InsertionSort;
-import com.dougdomingos.sorts.mergesort.MergeSort;
-import com.dougdomingos.sorts.quicksort.QuickSort;
-import com.dougdomingos.sorts.selectionsort.SelectionSort;
-import com.dougdomingos.sorts.shakersort.ShakerSort;
+import com.dougdomingos.sorts.linear.CountingSort;
+import com.dougdomingos.sorts.logarithmic.MergeSort;
+import com.dougdomingos.sorts.logarithmic.QuickSort;
+import com.dougdomingos.sorts.quadratic.BubbleSort;
+import com.dougdomingos.sorts.quadratic.InsertionSort;
+import com.dougdomingos.sorts.quadratic.SelectionSort;
+import com.dougdomingos.sorts.quadratic.ShakerSort;
+
 
 /**
  * Generic test class for sorting algorithms.
