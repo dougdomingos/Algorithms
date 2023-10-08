@@ -4,8 +4,8 @@ import com.dougdomingos.structures.StructureOverflowException;
 import com.dougdomingos.structures.StructureUnderflowException;
 import com.dougdomingos.structures.hashTable.AbstractHashTable;
 import com.dougdomingos.structures.hashTable.hashing.HashFunctionBuilder;
-import com.dougdomingos.structures.hashTable.hashing.closedAddress.ClosedAddressHash;
 import com.dougdomingos.structures.hashTable.hashing.closedAddress.ClosedAddressHashing;
+import com.dougdomingos.structures.hashTable.hashing.closedAddress.ClosedAddressMethods;
 import com.dougdomingos.structures.linkedList.SinglyLinkedList;
 
 /**
@@ -23,7 +23,7 @@ public class ClosedAddressHashTable<T extends Comparable<T>>
 	 * @param method
 	 *            The hashing method to be used (e.g. DIVISION, MULTIPLICATION)
 	 */
-	public ClosedAddressHashTable(int capacity, ClosedAddressHash method) {
+	public ClosedAddressHashTable(int capacity, ClosedAddressMethods method) {
 		super(capacity, HashFunctionBuilder.buildClosedAddressHash(method));
 	}
 

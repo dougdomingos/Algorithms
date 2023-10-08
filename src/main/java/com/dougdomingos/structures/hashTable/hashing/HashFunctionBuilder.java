@@ -1,13 +1,13 @@
 package com.dougdomingos.structures.hashTable.hashing;
 
-import com.dougdomingos.structures.hashTable.hashing.closedAddress.ClosedAddressHash;
 import com.dougdomingos.structures.hashTable.hashing.closedAddress.ClosedAddressHashing;
+import com.dougdomingos.structures.hashTable.hashing.closedAddress.ClosedAddressMethods;
 import com.dougdomingos.structures.hashTable.hashing.closedAddress.DivisionHash;
 import com.dougdomingos.structures.hashTable.hashing.closedAddress.MultiplicationHash;
 import com.dougdomingos.structures.hashTable.hashing.openAddress.DoubleHashing;
 import com.dougdomingos.structures.hashTable.hashing.openAddress.LinearProbingHash;
-import com.dougdomingos.structures.hashTable.hashing.openAddress.OpenAddressHash;
 import com.dougdomingos.structures.hashTable.hashing.openAddress.OpenAddressHashing;
+import com.dougdomingos.structures.hashTable.hashing.openAddress.OpenAddressMethods;
 
 /**
  * Utility class for building hash functions.
@@ -24,7 +24,7 @@ public class HashFunctionBuilder<T> {
 	 *         not recognized
 	 */
 	public static <T> ClosedAddressHashing<T> buildClosedAddressHash(
-			ClosedAddressHash method) {
+			ClosedAddressMethods method) {
 
 		ClosedAddressHashing<T> hashFunction = null;
 
@@ -51,7 +51,7 @@ public class HashFunctionBuilder<T> {
 	 *         not recognized
 	 */
 	public static <T> OpenAddressHashing<T> buildOpenAddressHash(
-			OpenAddressHash method) {
+			OpenAddressMethods method) {
 
 		OpenAddressHashing<T> hashFunction = null;
 

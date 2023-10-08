@@ -4,7 +4,7 @@ import com.dougdomingos.structures.StructureOverflowException;
 import com.dougdomingos.structures.StructureUnderflowException;
 import com.dougdomingos.structures.hashTable.AbstractHashTable;
 import com.dougdomingos.structures.hashTable.hashing.HashFunctionBuilder;
-import com.dougdomingos.structures.hashTable.hashing.openAddress.OpenAddressHash;
+import com.dougdomingos.structures.hashTable.hashing.openAddress.OpenAddressMethods;
 import com.dougdomingos.structures.hashTable.hashing.openAddress.OpenAddressHashing;
 
 public class OpenAddressHashTable<T extends Comparable<T>>
@@ -12,7 +12,7 @@ public class OpenAddressHashTable<T extends Comparable<T>>
 
 	private final Tombstone DELETED = new Tombstone();
 
-	public OpenAddressHashTable(int capacity, OpenAddressHash method) {
+	public OpenAddressHashTable(int capacity, OpenAddressMethods method) {
 		super(capacity, HashFunctionBuilder.buildOpenAddressHash(method));
 	}
 
