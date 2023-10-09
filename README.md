@@ -42,7 +42,7 @@ As I learn more, I'll add new implementations here. Currently, these are the str
 - [X] Stack
 - [X] Queue
 - [X] Circular Queue
-- [ ] Hash Table
+- [X] Hash Table
 
 ### Node-based Structures
 - [X] Singly Linked List (SLL)
