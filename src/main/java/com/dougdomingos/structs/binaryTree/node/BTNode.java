@@ -35,7 +35,8 @@ public class BTNode<T extends Comparable<T>> implements Comparable<T> {
     /**
      * Creates a new node.
      * 
-     * @param data the value of the node
+     * @param data
+     *            the value of the node
      */
     public BTNode(T data) {
         this.data = data;
@@ -44,12 +45,43 @@ public class BTNode<T extends Comparable<T>> implements Comparable<T> {
     /**
      * Creates a new node with the parent node.
      * 
-     * @param data   the value of the node
-     * @param parent the parent of the node
+     * @param data
+     *            the value of the node
+     * @param parent
+     *            the parent of the node
      */
     public BTNode(T data, BTNode<T> parent) {
         this.data = data;
         this.parent = parent;
+    }
+
+    /**
+     * Checks if the node is a leaf node (has no child nodes)
+     * 
+     * @return A boolean value; true if its a leaf node, false otherwise
+     */
+    public boolean isLeaf() {
+        return (getLeft() == null) && (getRight() == null);
+    }
+
+    /**
+     * Checks if the node only has its left child.
+     * 
+     * @return A boolean value; true if the node only has its t child, false
+     *         otherwise
+     */
+    public boolean hasOnlyLeftChild() {
+        return (getLeft() != null) && (getRight() == null);
+    }
+
+    /**
+     * Checks if the node only has its right child.
+     * 
+     * @return A boolean value; true if the node only has its t child, false
+     *         otherwise
+     */
+    public boolean hasOnlyRightChild() {
+        return (getLeft() == null) && (getRight() != null);
     }
 
     public T getData() {
@@ -89,4 +121,23 @@ public class BTNode<T extends Comparable<T>> implements Comparable<T> {
         return this.data.compareTo(arg0);
     }
 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((data == null) ? 0 : data.hashCode());
+        return result;
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public boolean equals(Object obj) {
+        if (!(obj instanceof BTNode)) {
+            return false;
+        }
+
+        BTNode<T> node = (BTNode<T>) obj;
+
+        return data.compareTo(node.getData()) == 0;
+    }
 }
