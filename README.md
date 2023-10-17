@@ -50,6 +50,12 @@ As I learn more, I'll add new implementations here. Currently, these are the str
 - [X] Stack with SLL
 - [X] Queue with DLL
 
+### Trees
+- [ ] Binary Search Tree (BST)
+- [ ] AVL Tree
+- [ ] Red-Black Tree
+- [ ] B-Tree
+
 ## Getting Started
 
 1. Clone this repository to your local machine using:
