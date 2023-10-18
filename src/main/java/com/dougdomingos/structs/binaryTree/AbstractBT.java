@@ -1,5 +1,7 @@
 package com.dougdomingos.structs.binaryTree;
 
+import java.util.ArrayList;
+
 import com.dougdomingos.structs.binaryTree.node.BTNode;
 
 /**
@@ -122,11 +124,11 @@ public abstract class AbstractBT<T extends Comparable<T>> implements BinaryTree<
             return null;
         }
 
-        T[] array = (T[]) new Comparable[size()];
+        ArrayList<T> array = new ArrayList<>();
 
-        preOrder(root, array, 0);
+        preOrder(root, array);
 
-        return array;
+        return (T[]) array.toArray(new Comparable[array.size()]);
     }
 
     @Override
@@ -136,11 +138,11 @@ public abstract class AbstractBT<T extends Comparable<T>> implements BinaryTree<
             return null;
         }
 
-        T[] array = (T[]) new Comparable[size()];
+        ArrayList<T> array = new ArrayList<>();
 
-        inOrder(root, array, 0);
+        inOrder(root, array);
 
-        return array;
+        return (T[]) array.toArray(new Comparable[array.size()]);
     }
 
     @Override
@@ -150,11 +152,11 @@ public abstract class AbstractBT<T extends Comparable<T>> implements BinaryTree<
             return null;
         }
 
-        T[] array = (T[]) new Comparable[size()];
+        ArrayList<T> array = new ArrayList<>();
 
-        postOrder(root, array, 0);
+        postOrder(root, array);
 
-        return array;
+        return (T[]) array.toArray(new Comparable[array.size()]);
     }
 
     // ---------------------- RECURSIVE METHODS -----------------------
@@ -170,7 +172,7 @@ public abstract class AbstractBT<T extends Comparable<T>> implements BinaryTree<
             return root;
         }
 
-        return root.getRight();
+        return maximum(root.getRight());
     }
 
     /**
@@ -184,7 +186,7 @@ public abstract class AbstractBT<T extends Comparable<T>> implements BinaryTree<
             return root;
         }
 
-        return root.getLeft();
+        return minimum(root.getLeft());
     }
 
     /**
@@ -200,9 +202,9 @@ public abstract class AbstractBT<T extends Comparable<T>> implements BinaryTree<
             return null;
         }
 
-        if (root.compareTo(element) < 0) {
+        if (element.compareTo(root.getData()) < 0) {
             return search(element, root.getLeft());
-        } else if (root.compareTo(element) > 0) {
+        } else if (element.compareTo(root.getData()) > 0) {
             return search(element, root.getRight());
         } else {
             return root;
@@ -274,14 +276,14 @@ public abstract class AbstractBT<T extends Comparable<T>> implements BinaryTree<
      * @param array The array representing the pre-order
      * @param index The current insertion index of the array
      */
-    private void preOrder(BTNode<T> root, T[] array, int index) {
-        if (index >= array.length) {
+    private void preOrder(BTNode<T> root, ArrayList<T> array) {
+        if (root == null) {
             return;
         }
 
-        array[index++] = root.getData();
-        preOrder(root.getLeft(), array, index);
-        preOrder(root.getRight(), array, index);
+        array.add(root.getData());
+        preOrder(root.getLeft(), array);
+        preOrder(root.getRight(), array);
     }
 
     /**
@@ -291,14 +293,14 @@ public abstract class AbstractBT<T extends Comparable<T>> implements BinaryTree<
      * @param array The array representing the in-order
      * @param index The current insertion index of the array
      */
-    private void inOrder(BTNode<T> root, T[] array, int index) {
-        if (index >= array.length) {
+    private void inOrder(BTNode<T> root, ArrayList<T> array) {
+        if (root == null) {
             return;
         }
 
-        preOrder(root.getLeft(), array, index);
-        array[index++] = root.getData();
-        preOrder(root.getRight(), array, index);
+        inOrder(root.getLeft(), array);
+        array.add(root.getData());
+        inOrder(root.getRight(), array);
     }
 
     /**
@@ -308,14 +310,14 @@ public abstract class AbstractBT<T extends Comparable<T>> implements BinaryTree<
      * @param array The array representing the post-order
      * @param index The current insertion index of the array
      */
-    private void postOrder(BTNode<T> root, T[] array, int index) {
-        if (index >= array.length) {
+    private void postOrder(BTNode<T> root, ArrayList<T> array) {
+        if (root == null) {
             return;
         }
 
-        preOrder(root.getLeft(), array, index);
-        preOrder(root.getRight(), array, index);
-        array[index++] = root.getData();
+        postOrder(root.getLeft(), array);
+        postOrder(root.getRight(), array);
+        array.add(root.getData());
     }
 
 }

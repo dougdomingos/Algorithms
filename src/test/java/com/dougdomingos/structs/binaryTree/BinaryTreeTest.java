@@ -183,7 +183,6 @@ public class BinaryTreeTest {
         assertArrayEquals(expected, tree.postOrder());
     }
 
-
     /**
      * Set up the algorithms to be tested.
      *

@@ -10,7 +10,7 @@ public class BST<T extends Comparable<T>> extends AbstractBT<T> {
 
     @Override
     public void add(T element) {
-        if (element != null) {
+        if (element == null) {
             return;
         }
 
@@ -41,23 +41,28 @@ public class BST<T extends Comparable<T>> extends AbstractBT<T> {
      * Recursive method for adding a new node into the tree.
      * 
      * @param root
-     *            The root of the tree
+     *                The root of the tree
      * @param newNode
-     *            The new node to be inserted into the tree
+     *                The new node to be inserted into the tree
      */
     private void add(BTNode<T> root, BTNode<T> newNode) {
-        if (root.isLeaf()) {
-            newNode.setParent(root);
-
-            if (newNode.compareTo(root.getData()) < 0) {
+        if (newNode.compareTo(root.getData()) < 0) {
+            // If the new element is smaller than root,
+            // add the element at left (if it's null), or go to the left otherwise
+            if (root.getLeft() == null) {
                 root.setLeft(newNode);
-            } else if (newNode.compareTo(root.getData()) > 0) {
-                root.setRight(newNode);
-            }
-        } else {
-            if (newNode.compareTo(root.getData()) < 0) {
+                newNode.setParent(root);
+            } else {
                 add(root.getLeft(), newNode);
-            } else if (newNode.compareTo(root.getData()) > 0) {
+            }
+
+        } else {
+            // If the new element is greater than root,
+            // add the element at right (if it's null), or go to the right otherwise
+            if (root.getRight() == null) {
+                root.setRight(newNode);
+                newNode.setParent(root);
+            } else {
                 add(root.getRight(), newNode);
             }
         }
@@ -67,7 +72,7 @@ public class BST<T extends Comparable<T>> extends AbstractBT<T> {
      * Auxiliar method for removing an element of the tree.
      * 
      * @param target
-     *            The node to be removed
+     *               The node to be removed
      */
     private void remove(BTNode<T> target) {
         if (target.isLeaf()) {
