@@ -15,7 +15,6 @@ import com.dougdomingos.sorts.quadratic.InsertionSort;
 import com.dougdomingos.sorts.quadratic.SelectionSort;
 import com.dougdomingos.sorts.quadratic.ShakerSort;
 
-
 /**
  * Generic test class for sorting algorithms.
  */

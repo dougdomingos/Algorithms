@@ -5,9 +5,9 @@
  * The sorting algorithms are classified into packages by their time complexity,
  * as follows:
  * <ul>
- *   <li>Linear: algorithms with worst-case time complexity of O(n)
- *   <li>Quadratic: algorithms with worst-case time complexity of O(n^2)
- *   <li>Logarithmic: algorithms with worst-case time complexity of O(n * log n)
+ * <li>Linear: algorithms with worst-case time complexity of O(n)
+ * <li>Quadratic: algorithms with worst-case time complexity of O(n^2)
+ * <li>Logarithmic: algorithms with worst-case time complexity of O(n * log n)
  * </ul>
  */
 package com.dougdomingos.sorts;
