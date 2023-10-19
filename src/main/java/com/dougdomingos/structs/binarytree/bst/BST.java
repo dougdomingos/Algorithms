@@ -1,7 +1,7 @@
-package com.dougdomingos.structs.binaryTree.bst;
+package com.dougdomingos.structs.binarytree.bst;
 
-import com.dougdomingos.structs.binaryTree.AbstractBT;
-import com.dougdomingos.structs.binaryTree.node.BTNode;
+import com.dougdomingos.structs.binarytree.AbstractBT;
+import com.dougdomingos.structs.binarytree.node.BTNode;
 
 /**
  * Implementation of a Binary Search Tree.

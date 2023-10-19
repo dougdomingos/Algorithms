@@ -1,4 +1,4 @@
-package com.dougdomingos.structs.binaryTree;
+package com.dougdomingos.structs.binarytree;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import com.dougdomingos.structs.binaryTree.bst.BST;
+import com.dougdomingos.structs.binarytree.bst.BST;
 
 /**
  * Generic test class for Binary Tree implementations.

@@ -1,8 +1,8 @@
-package com.dougdomingos.structs.binaryTree;
+package com.dougdomingos.structs.binarytree;
 
 import java.util.ArrayList;
 
-import com.dougdomingos.structs.binaryTree.node.BTNode;
+import com.dougdomingos.structs.binarytree.node.BTNode;
 
 /**
  * Abstract base class for implementing a Binary Tree.

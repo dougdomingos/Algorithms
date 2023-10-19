@@ -1,4 +1,4 @@
-package com.dougdomingos.structs.binaryTree.node;
+package com.dougdomingos.structs.binarytree.node;
 
 /**
  * Representation of a tree node.

@@ -1,6 +1,6 @@
-package com.dougdomingos.structs.binaryTree;
+package com.dougdomingos.structs.binarytree;
 
-import com.dougdomingos.structs.binaryTree.node.BTNode;
+import com.dougdomingos.structs.binarytree.node.BTNode;
 
 /**
  * Interface for implementing a generic Tree.
